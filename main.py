@@ -1,6 +1,12 @@
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 import platform
 import os
 import time
+Tk().withdraw()
+
+#----------------------------------------------VARIABLES GLOBALES--------------------------------------------
+ruta=""
 
 def clear():
     sistema = platform.system()
@@ -10,7 +16,19 @@ def clear():
         os.system("clear")
 
 def cargarArchivo():
-    print()
+    global ruta
+    print("\n------------------------------------ CARGAR ARCHIVO ------------------------------------\n")
+    try:
+        rutaMenu = askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.glc*"), ("all files", "*.*")))
+        if rutaMenu=="":
+            print(" > ERROR: No se seleccionó ningún archivo")
+            input("\n- PRESIONE ENTER PARA CONTINUAR...")
+        else:
+            print(" > Archivo cargado")
+            input("\n- PRESIONE ENTER PARA CONTINUAR...")
+    except:
+        print(" > ERROR: No se seleccionó ningún archivo o el archivo no cumple con el formato")
+        input("\n- PRESIONE ENTER PARA CONTINUAR...")
 
 def infoGramatica():
     print()
@@ -73,4 +91,4 @@ def menu():
             print("\n > Opción inválida...")
             input(" - PRESIONE ENTER PARA CONTINUAR...")
 
-pantallaPrincipal()
+menu()
