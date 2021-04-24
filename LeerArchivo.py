@@ -6,6 +6,7 @@ def extraerGramaticas(ruta):
     archivo.close()
     grupos=contenido.split("*")
     grupos.pop()
+    gramaticas=[]
     for grupo in grupos:
         agregar=None
         lineas=grupo.lstrip().rstrip().split("\n")
@@ -46,9 +47,17 @@ def extraerGramaticas(ruta):
                         listaProducciones[pos].expresiones.append(Expresiones)
                     else:
                         listaProducciones.append(exp(NoT,listaAux))
+            gramaticas.append(GRM(nombre,NT,T,TI,listaProducciones))
+            '''
             for xd in listaProducciones:
                 print(xd)
             print()
+            '''
+            for x in gramaticas:
+                print(x)
+                for xx in x.P:
+                    print(xx)
+                print()
             
 
 extraerGramaticas("Archivos_Prueba/entrada.glc")

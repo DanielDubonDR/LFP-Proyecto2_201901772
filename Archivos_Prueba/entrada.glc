@@ -30,3 +30,11 @@ Y->ZZ
 ZZ->3 ZZ
 ZZ->3
 *
+Gramatica satanas
+S0,S1,S2;a,b,x;S0
+S0->x S1 S2 x
+S1->a S1 A
+S1->x
+S2->b S2 b
+S2->x
+*
