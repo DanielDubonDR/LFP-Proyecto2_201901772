@@ -135,8 +135,8 @@ def extraerGramaticas(ruta):
             print(xx)
         print()
     '''
-    if len(gramaticasRegulares)!=0:
-        reporte(gramaticasRegulares)
+    # if len(gramaticasRegulares)!=0:
+    #     reporte(gramaticasRegulares)
 
     return gramaticas
                 

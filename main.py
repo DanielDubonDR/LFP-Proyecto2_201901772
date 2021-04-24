@@ -18,6 +18,7 @@ def clear():
         os.system("clear")
 
 def cargarArchivo():
+    clear()
     global ruta
     print("\n------------------------------------ CARGAR ARCHIVO ------------------------------------\n")
     try:
@@ -35,10 +36,72 @@ def cargarArchivo():
         input("\n- PRESIONE ENTER PARA CONTINUAR...")
 
 def infoGramatica():
-    print()
+    if ruta!="":
+        z=len(gramaticas)+1
+        opcion=0
+        while opcion!=z:
+            clear()
+            cont=0
+            String=""
+            print("\n---------------------------------- SELECCIONAR GRAMÁTICA ---------------------------------")
+            for i in gramaticas:
+                cont+=1
+                String+=str("\n ")+str(cont)+str(". ")+str(i.nombre)
+            print(String)
+            print(" "+str(cont+1)+". Regresar\n")
+            try:
+                opcion=int(input("- Ingrese una opción:\n  > "))
+                if opcion>z or opcion<1:
+                    print("\n > Opción inválida...")
+                    input(" - PRESIONE ENTER PARA CONTINUAR...")
+                else:
+                    if opcion!=z:
+                        clear()
+                        print("\n------------------------------- INFORMACIÓN DE LA GRAMÁTICA ------------------------------\n")
+                        print(gramaticas[opcion-1])
+                        for j in gramaticas[opcion-1].P:
+                            print(j)
+                        input("\n - PRESIONE ENTER PARA CONTINUAR...")
+            except:
+                print("\n > Opción inválida...")
+                input(" - PRESIONE ENTER PARA CONTINUAR...")
+    else:
+        print("  > ERROR: No se ha cargado o procesado ningún archivo ")
+        input("\n- PRESIONE ENTER PARA CONTINUAR...")
+
 
 def generarAutomata():
-    print()
+    if ruta!="":
+        z=len(gramaticas)+1
+        opcion=0
+        while opcion!=z:
+            clear()
+            cont=0
+            String=""
+            print("\n---------------------------------- SELECCIONAR GRAMÁTICA ---------------------------------")
+            for i in gramaticas:
+                cont+=1
+                String+=str("\n ")+str(cont)+str(". ")+str(i.nombre)
+            print(String)
+            print(" "+str(cont+1)+". Regresar\n")
+            try:
+                opcion=int(input("- Ingrese una opción:\n  > "))
+                if opcion>z or opcion<1:
+                    print("\n > Opción inválida...")
+                    input(" - PRESIONE ENTER PARA CONTINUAR...")
+                else:
+                    if opcion!=z:
+                        clear()
+                        print("\n--------------------------------- GENERAR AUTOMÁTA DE PILA -------------------------------\n")
+                        
+                        print("  > Automáta de pila generado")
+                        input("\n - PRESIONE ENTER PARA CONTINUAR...")
+            except:
+                print("\n > Opción inválida...")
+                input(" - PRESIONE ENTER PARA CONTINUAR...")
+    else:
+        print("  > ERROR: No se ha cargado o procesado ningún archivo ")
+        input("\n- PRESIONE ENTER PARA CONTINUAR...")
 
 def reporteRecorrido():
     print()
@@ -79,6 +142,7 @@ def pantallaPrincipal():
 def menu():
     opcion=0
     while opcion!=6:
+        clear()
         print("\n------------------------------------ MENÚ PRINCIPAL ------------------------------------\n")
         print("   1. Cargar archivo")
         print("   2. Mostrar información general de la gramática")
