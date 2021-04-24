@@ -1,0 +1,82 @@
+
+        <!DOCTYPE html>
+        <html>
+            <title>Menu</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Asap+Condensed:wght@400;700&family=Courgette&family=Lobster&family=Rokkitt:wght@300;800&display=swap" rel="stylesheet">
+            <style>
+                .w3-lobster
+                {
+                    font-family: "Lobster", Sans-serif;
+                }
+                .w3-Asap-Condensed
+                {
+                    font-family: 'Asap Condensed', sans-serif;
+                }
+                .w3-Courgette
+                {
+                    font-family: 'Courgette', cursive;
+                }
+                .w3-Rokkitt
+                {
+                    font-family: 'Rokkitt', serif;
+                    font-weight: 800;
+                }
+            </style>
+            <body>
+                <div class="w3-container w3-teal w3-center w3-margin-bottom">
+                    <br>
+                    <h1 class="w3-lobster" style="font-size: 60px;">Gramáticas Regulares</h1>
+                    <h3 class="w3-Courgette" style="font-size: 20px;">Gramáticas no cargadas por no ser exclusivamente gramáticas libres de contexto</h3>
+                    <br>
+                </div>
+    
+            <table class="w3-table w3-margin-top">
+                    <tr>
+                        <td style="width:25%;" class=" w3-Courgette"></td>
+                        <td style="width:50%;" class=" w3-Courgette">
+                            <div class="w3-container  w3-margin-bottom">
+                                <div class="w3-card-4 w3-margin-bottom">
+                                    <header class="w3-container w3-deep-purple  w3-round-small w3-center">
+                                        <h1 class="w3-Rokkitt">Gramatica2</h1>
+                                    </header>
+                                    <div class="w3-container w3-middle Asap-Condensed">
+                                        <p style="font-size: 18px;"><b>No Terminales</b> = { A,B,C,D } <br> <b>Terminales</b> = {0,1 } <br> <b>No Terminal Inicial</b> = A <br> <b>Producciones:</b></p>
+        <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA -> 1 B<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0 C<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspB -> 1 A<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0 D<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspC -> 1 D<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0 A<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspD -> 1 C<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0 B
+                                    </div>
+                                    <footer class="w3-container w3-deep-purple w3-round-small"><br></footer>
+                                </div>
+                            <br>
+                            </div>
+                        </td>
+                        <td style="width:25%;" class=" w3-Courgette"></td>
+                    </tr>
+                </table>
+         
+            <table class="w3-table w3-margin-top">
+                    <tr>
+                        <td style="width:25%;" class=" w3-Courgette"></td>
+                        <td style="width:50%;" class=" w3-Courgette">
+                            <div class="w3-container  w3-margin-bottom">
+                                <div class="w3-card-4 w3-margin-bottom">
+                                    <header class="w3-container w3-deep-purple  w3-round-small w3-center">
+                                        <h1 class="w3-Rokkitt">Lineal Izquierda</h1>
+                                    </header>
+                                    <div class="w3-container w3-middle Asap-Condensed">
+                                        <p style="font-size: 18px;"><b>No Terminales</b> = { A,B,C,D } <br> <b>Terminales</b> = {0,1 } <br> <b>No Terminal Inicial</b> = A <br> <b>Producciones:</b></p>
+        <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspA -> 1 B<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbspC 0<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspB -> A 1<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbspD 0<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspC -> D 1<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbsp0<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbspA 0<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspD -> C 1<br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|&nbspB 0
+                                    </div>
+                                    <footer class="w3-container w3-deep-purple w3-round-small"><br></footer>
+                                </div>
+                            <br>
+                            </div>
+                        </td>
+                        <td style="width:25%;" class=" w3-Courgette"></td>
+                    </tr>
+                </table>
+         
+        </body>
+    </html>
+    

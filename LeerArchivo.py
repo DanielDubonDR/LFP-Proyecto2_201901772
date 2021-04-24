@@ -1,6 +1,9 @@
 from Clases.Gramatica import GRM, exp
+from Funciones.RGNAdmitidas import reporte
+gramaticas=None
 
 def extraerGramaticas(ruta):
+    global gramaticas
     archivo=open(ruta,'r', encoding='utf8')
     contenido=archivo.read()
     archivo.close()
@@ -133,6 +136,8 @@ def extraerGramaticas(ruta):
         for xx in x.P:
             print(xx)
         print()
+    if len(gramaticasRegulares)!=0:
+        reporte(gramaticasRegulares)
                 
 def verficarTerminal(lista, T):
     verificar=False
@@ -147,5 +152,8 @@ def verficarNTerminal(lista, NT):
         if NT==x:
             verificar=True
     return verificar
+
+def getGramaticas():
+    return gramaticas
 
 extraerGramaticas("Archivos_Prueba/entrada.glc")
