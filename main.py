@@ -3,10 +3,12 @@ from tkinter.filedialog import askopenfilename
 import platform
 import os
 import time
+from  LeerArchivo import extraerGramaticas
 Tk().withdraw()
 
 #----------------------------------------------VARIABLES GLOBALES--------------------------------------------
 ruta=""
+gramaticas=None
 
 def clear():
     sistema = platform.system()
@@ -19,12 +21,14 @@ def cargarArchivo():
     global ruta
     print("\n------------------------------------ CARGAR ARCHIVO ------------------------------------\n")
     try:
-        rutaMenu = askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.glc*"), ("all files", "*.*")))
-        if rutaMenu=="":
+        ruta = askopenfilename(initialdir = "/", title = "Select a File", filetypes = (("Text files", "*.glc*"), ("all files", "*.*")))
+        if ruta=="":
             print(" > ERROR: No se seleccionó ningún archivo")
             input("\n- PRESIONE ENTER PARA CONTINUAR...")
         else:
             print(" > Archivo cargado")
+            global gramaticas
+            gramaticas=extraerGramaticas(ruta)
             input("\n- PRESIONE ENTER PARA CONTINUAR...")
     except:
         print(" > ERROR: No se seleccionó ningún archivo o el archivo no cumple con el formato")

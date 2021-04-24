@@ -60,6 +60,7 @@ def reporte(lista):
                     txt+=str(x.expresiones[j])
         txt+='''
                                     </div>
+                                    <br>
                                     <footer class="w3-container w3-deep-purple w3-round-small"><br></footer>
                                 </div>
                             <br>
