@@ -7,7 +7,7 @@ class GRM:
         self.P=P
 
     def __str__(self):
-        string="- Nombre de la gramática tipo 2 "+str(self.nombre)+"\n- No Terminales: = { "+str(self.NT)+" }\n- Terminales = { "+str(self.T)+" }\n- No Terminal Inicial = "+str(self.NTI)+"\n- Producciones: \n"
+        string="- Nombre de la gramática tipo 2: "+str(self.nombre)+"\n- No Terminales: = { "+str(self.NT)+" }\n- Terminales = { "+str(self.T)+" }\n- No Terminal Inicial = "+str(self.NTI)+"\n- Producciones: \n"
         return string
     
 class exp:

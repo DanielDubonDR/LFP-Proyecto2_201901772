@@ -38,3 +38,39 @@ S1->x
 S2->b S2 b
 S2->x
 *
+Lineal Izquierda
+A,B,C,D;0,1;A
+A->1 B
+A->C 0
+B->A 1
+B->D 0
+C->D 1
+C->0
+D->C 1
+C->A 0
+D->B 0
+*
+Doble terminal
+A,B,C,D;0,1;A
+A->B B
+A->C 0
+B->A 1
+B->D 0
+C->D 1
+C->0
+D->C 1
+C->A 0
+D->B 0
+*
+NT IND
+A,B,C,D;0,1;A
+A->B 1
+A->C 0
+B->A 1
+B->D 0
+C->D 1
+C->D
+D->C 1
+C->A 0
+D->B 0
+*
