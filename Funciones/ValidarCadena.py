@@ -15,8 +15,10 @@ class validar:
         for i in self.gramatica.P:
             for j in i.expresiones:
                 self.transionesNTerminales.append(TransicionNT(i.NoT,j))
+        '''
         for i in self.transionesNTerminales:
             print(i)
+        '''
 
     def verificar(self):
         if self.verificarAlfabeto(self.cadena[0]):
@@ -24,6 +26,23 @@ class validar:
             self.pila.append("#")
             self.historial.append(historial(1,self.verPila(),self.cadena[0],"(p,λ,λ;q,"+str(self.gramatica.NTI)+")"))
             self.pila.append(self.gramatica.NTI)
+            longitud=len(self.cadena)
+            posicion=0
+            while posicion<longitud:
+                top=self.obtenerTop()
+                if self.determinarTipo(self.obtenerTop())=="T":
+                    if self.obtenerTop()==self.cadena[posicion]:
+                        self.desapilar()
+                        posicion+=1
+                    else:
+                        print("1 Cadena invalida")
+                        posicion+=1
+                elif self.determinarTipo(self.obtenerTop())=="NT":
+                    print()
+# empezar a trabajar acaaaa
+
+
+
             for i in self.historial:
                 print(i)
         else:
@@ -37,14 +56,32 @@ class validar:
             txt+=str(i)
         return txt
 
+    def apilar(self, produccion):
+        aux=produccion.split(" ")
+        aux.reverse()
+        for i in aux:
+            self.pila.append(i)
+
     def desapilar(self):
         try:
             return self.pila.pop()
         except IndexError:
             return "vacio"
     
+    def obtenerTop(self):
+        try:
+            return self.pila[len(self.pila)-1]
+        except IndexError:
+            return "vacio"
+    
     def es_vacia(self):
         return self.pila == []
+    
+    def determinarTipo(self, evaluar):
+        if evaluar in self.gramatica.T:
+            return "T"
+        elif evaluar in self.gramatica.NT:
+            return "NT"
     
     def verificarAlfabeto(self, letra):
         alfabeto=self.gramatica.T
