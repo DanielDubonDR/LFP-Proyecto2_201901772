@@ -5,7 +5,7 @@ def reporte(lista):
     txt='''
         <!DOCTYPE html>
         <html>
-            <title>Menu</title>
+            <title>Gramaticas Regulares</title>
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
             <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -78,7 +78,7 @@ def reporte(lista):
     crearArchivo()
 
 def crearArchivo():
-    path=os.getcwd()+"/Reportes/GRMR.html"
+    path=os.getcwd()+"/Reportes/GramaticasRegulares.html"
     arhcivo=open(path,'w', encoding='utf8')
     arhcivo.write(txt)
     arhcivo.close()

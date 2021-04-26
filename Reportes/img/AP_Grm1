@@ -1,0 +1,30 @@
+digraph G {
+	rankdir=LR
+	node [label="" shape=none]
+	inicio
+	node [fixedsize=true label=i shape=circle width=0.7]
+	node [fillcolor="#535c689f" style=filled]
+	i
+	node [fixedsize=true label=p shape=circle width=0.7]
+	p
+	node [fillcolor="#535c689f" style=filled]
+	node [fixedsize=true label=f shape=doublecircle width=0.7]
+	f
+	node [fillcolor="#535c689f" fixedsize=true label=q shape=circle style=filled width=1.2]
+	inicio -> i
+	i -> p [label="λ,λ;#"]
+	p -> q [label="λ,λ;S"]
+	q -> q [label="λ,S;A
+λ,A;aAa
+λ,A;B
+λ,B;bBb
+λ,B;C
+λ,C;zC
+λ,C;z
+"]
+	q -> f [label="λ,#;λ"]
+	q -> q [label="a,a;λ
+b,b;λ
+z,z;λ
+" headport=s]
+}
