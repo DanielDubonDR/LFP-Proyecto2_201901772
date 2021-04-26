@@ -4,6 +4,7 @@ import platform
 import os
 import time
 from  LeerArchivo import extraerGramaticas
+from Funciones.GraficarAP import generarReporteAP
 Tk().withdraw()
 
 #----------------------------------------------VARIABLES GLOBALES--------------------------------------------
@@ -93,7 +94,7 @@ def generarAutomata():
                     if opcion!=z:
                         clear()
                         print("\n--------------------------------- GENERAR AUTOMÁTA DE PILA -------------------------------\n")
-                        
+                        generarReporteAP(gramaticas[opcion-1]) 
                         print("  > Automáta de pila generado")
                         input("\n - PRESIONE ENTER PARA CONTINUAR...")
             except:
