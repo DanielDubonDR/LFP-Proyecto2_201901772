@@ -5,11 +5,13 @@ import os
 import time
 from  LeerArchivo import extraerGramaticas
 from Funciones.GraficarAP import generarReporteAP
+from Funciones.ValidarCadena import validar
 Tk().withdraw()
 
 #----------------------------------------------VARIABLES GLOBALES--------------------------------------------
 ruta=""
 gramaticas=None
+AP=[]
 
 def clear():
     sistema = platform.system()
@@ -95,6 +97,7 @@ def generarAutomata():
                         clear()
                         print("\n--------------------------------- GENERAR AUTOMÁTA DE PILA -------------------------------\n")
                         generarReporteAP(gramaticas[opcion-1]) 
+                        AP.append(gramaticas[opcion-1].nombre)
                         print("  > Automáta de pila generado")
                         input("\n - PRESIONE ENTER PARA CONTINUAR...")
             except:
@@ -108,7 +111,44 @@ def reporteRecorrido():
     print()
 
 def reporteTabla():
-    print()
+    if ruta!="":
+        if len(AP)!=0:
+            z=len(AP)+1
+            opcion=0
+            while opcion!=z:
+                clear()
+                cont=0
+                String=""
+                print("\n------------------------------ SELECCIONAR AUTOMÁTA DE PILA ------------------------------")
+                for i in AP:
+                    cont+=1
+                    String+=str("\n ")+str(cont)+str(". AP_")+str(i)
+                print(String)
+                print(" "+str(cont+1)+". Regresar\n")
+                try:
+                    opcion=int(input("- Ingrese una opción:\n  > "))
+                    if opcion>z or opcion<1:
+                        print("\n > Opción inválida...")
+                        input(" - PRESIONE ENTER PARA CONTINUAR...")
+                    else:
+                        if opcion!=z:
+                            clear()
+                            print("\n------------------------------------- VERIFICAR CADENA -----------------------------------\n")
+                            cadena=str(input("  Ingrese la cadena a validar:\n    > "))
+                            verificar=validar(gramaticas[opcion-1], cadena)
+                            print("\n  > Reporte generado")
+                            input("\n - PRESIONE ENTER PARA CONTINUAR...")
+                except:
+                    print("\n > Opción inválida...")
+                    input(" - PRESIONE ENTER PARA CONTINUAR...")
+        else:
+            clear()
+            print("\n------------------------------ SELECCIONAR AUTOMÁTA DE PILA ------------------------------")
+            print("\n  > ERROR: No se ha generado ningún automáta de pila ")
+            input("  - PRESIONE ENTER PARA CONTINUAR...")
+    else:
+        print("  > ERROR: No se ha cargado o procesado ningún archivo ")
+        input("\n- PRESIONE ENTER PARA CONTINUAR...")
 
 def salir():
     print("  > Saliendo...\n")
