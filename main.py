@@ -110,6 +110,11 @@ def generarAutomata():
 def reporteRecorrido():
     print()
 
+def obtenerG(opcion):
+    for i in gramaticas:
+        if i.nombre == AP[opcion]:
+            return i
+
 def reporteTabla():
     if ruta!="":
         if len(AP)!=0:
@@ -135,7 +140,7 @@ def reporteTabla():
                             clear()
                             print("\n------------------------------------- VERIFICAR CADENA -----------------------------------\n")
                             cadena=str(input("  Ingrese la cadena a validar:\n    > "))
-                            verificar=validar(gramaticas[opcion-1], cadena)
+                            verificar=validar(obtenerG(opcion-1), cadena)
                             print("\n  > Reporte generado")
                             input("\n - PRESIONE ENTER PARA CONTINUAR...")
                 except:

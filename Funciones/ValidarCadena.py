@@ -21,6 +21,8 @@ class validar:
         '''
 
     def verificar(self):
+        print(self.cadena)
+        print(self.cadena[0])
         if self.verificarAlfabeto(self.cadena[0]):
             self.historial.append(historial(0,"",self.cadena[0],"(i,λ,λ;p,#)"))
             self.pila.append("#")
@@ -38,7 +40,10 @@ class validar:
                         print("1 Cadena invalida")
                         posicion+=1
                 elif self.determinarTipo(self.obtenerTop())=="NT":
-                    print()
+                    if self.determinarProducciones(self.obtenerTop()) == 1:
+                        self.apilar(self.obtenerExpresion(self.obtenerTop()))
+                        print(self.obtenerTop())
+                    
 # empezar a trabajar acaaaa
 
 
@@ -89,3 +94,15 @@ class validar:
             return True
         else:
             return False
+    
+    def determinarProducciones(self, NT):
+        cont=0
+        for i in self.gramatica.P:
+            if i.NoT == NT:
+                cont+=1
+        return cont
+    
+    def obtenerExpresion(self, NT):
+        for i in self.gramatica.P:
+            if i.NoT == NT:
+                return i.expresiones
