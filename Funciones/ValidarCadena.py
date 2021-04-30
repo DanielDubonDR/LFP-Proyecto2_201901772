@@ -39,15 +39,20 @@ class validar:
                         posicion+=1
                         cont+=1
                     else:
-                        print("1 Cadena no válida")
+                        print("\n  > Cadena no válida")
                         reporte(self.historial,self.cadena,"Cadena no válida")
                         posicion+=1
+                        break
                 elif self.determinarTipo(self.obtenerTop())=="NT":
                     if self.determinarProducciones(self.obtenerTop()) == 1:
                         self.historial.append(historial(cont,self.verPila(),self.cadena[posicion],"(q,λ,"+str(self.obtenerTop())+";q,"+str(self.obtenerExpresion(self.obtenerTop()))+")"))
                         self.apilar(self.obtenerExpresion(self.obtenerTop()))
                         cont+=1
-                    
+                    elif self.determinarProducciones(self.obtenerTop()) == 2:
+                        axs=self.buscarProduccion(self.obtenerTop(), self.cadena[posicion])
+                        self.historial.append(historial(cont,self.verPila(),self.cadena[posicion],"(q,λ,"+str(self.obtenerTop())+";q,"+str(axs)+")"))
+                        cont+=1
+                        self.apilar(axs)
 # empezar a trabajar acaaaa
 
 
@@ -59,6 +64,17 @@ class validar:
         else:
             print("\n  > Cadena no válida")
             print("No se encuentra en el alfabeto")
+    
+    def buscarProduccion(self, NT, caracter):
+        for i in self.gramatica.P:
+            if i.NoT == NT:
+                for j in i.expresiones:
+                    if caracter in j and len(j)==1:
+                        return j
+                    elif caracter in j:
+                        return j
+                    else:
+                        return j
     
     def verPila(self):
         reversa=self.pila.copy()
