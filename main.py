@@ -205,4 +205,4 @@ def menu():
             print("\n > Opción inválida...")
             input(" - PRESIONE ENTER PARA CONTINUAR...")
 
-menu()
+pantallaPrincipal()
