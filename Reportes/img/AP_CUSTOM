@@ -15,8 +15,8 @@ digraph G {
 	i -> p [label="λ,λ;#"]
 	p -> q [label="λ,λ;S"]
 	q -> q [label="λ,S;CA
-λ,A;dB
-λ,B;aC
+λ,A;Bd
+λ,B;Ca
 λ,C;n
 "]
 	q -> f [label="λ,#;λ"]

@@ -1,5 +1,6 @@
 from Clases.Historial import historial
 from Clases.Transiciones import TransicionNT
+from Funciones.ReporteT import reporte
 
 class validar:
     def __init__(self, gramatica, cadena):
@@ -21,8 +22,7 @@ class validar:
         '''
 
     def verificar(self):
-        print(self.cadena)
-        print(self.cadena[0])
+        cont=2
         if self.verificarAlfabeto(self.cadena[0]):
             self.historial.append(historial(0,"",self.cadena[0],"(i,λ,λ;p,#)"))
             self.pila.append("#")
@@ -34,23 +34,30 @@ class validar:
                 top=self.obtenerTop()
                 if self.determinarTipo(self.obtenerTop())=="T":
                     if self.obtenerTop()==self.cadena[posicion]:
-                        self.desapilar()
+                        self.historial.append(historial(cont,self.verPila(),self.cadena[posicion],"(q,"+str(self.cadena[posicion])+","+str(self.obtenerTop())+";q,λ)"))
+                        self.pila.pop()
                         posicion+=1
+                        cont+=1
                     else:
-                        print("1 Cadena invalida")
+                        print("1 Cadena no válida")
+                        reporte(self.historial,self.cadena,"Cadena no válida")
                         posicion+=1
                 elif self.determinarTipo(self.obtenerTop())=="NT":
                     if self.determinarProducciones(self.obtenerTop()) == 1:
+                        self.historial.append(historial(cont,self.verPila(),self.cadena[posicion],"(q,λ,"+str(self.obtenerTop())+";q,"+str(self.obtenerExpresion(self.obtenerTop()))+")"))
                         self.apilar(self.obtenerExpresion(self.obtenerTop()))
-                        print(self.obtenerTop())
+                        cont+=1
                     
 # empezar a trabajar acaaaa
 
 
-
-            for i in self.historial:
-                print(i)
+            self.historial.append(historial(cont,self.verPila(),"λ","(q,λ,#;f,λ)"))
+            cont+=1
+            self.historial.append(historial(cont,"λ","λ","f"))
+            print("\n  > Cadena válida")
+            reporte(self.historial,self.cadena,"Cadena válida")
         else:
+            print("\n  > Cadena no válida")
             print("No se encuentra en el alfabeto")
     
     def verPila(self):
@@ -63,15 +70,10 @@ class validar:
 
     def apilar(self, produccion):
         aux=produccion.split(" ")
-        aux.reverse()
+        # aux.reverse()
+        self.pila.pop()
         for i in aux:
             self.pila.append(i)
-
-    def desapilar(self):
-        try:
-            return self.pila.pop()
-        except IndexError:
-            return "vacio"
     
     def obtenerTop(self):
         try:
@@ -99,10 +101,11 @@ class validar:
         cont=0
         for i in self.gramatica.P:
             if i.NoT == NT:
-                cont+=1
+                for j in i.expresiones:
+                    cont+=1
         return cont
     
     def obtenerExpresion(self, NT):
-        for i in self.gramatica.P:
+       for i in self.gramatica.P:
             if i.NoT == NT:
-                return i.expresiones
+                return i.expresiones[0]

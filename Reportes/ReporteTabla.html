@@ -1,0 +1,135 @@
+
+        <!DOCTYPE html>
+        <html>
+        <title>Reporte Tabla</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <style>
+        .w3-lobster {
+            font-family: "Lobster", serif;
+        }
+        </style>
+
+        <body>
+        <div class="w3-container w3-teal w3-center w3-margin-bottom">
+            <br><br>
+            <h1 class="w3-lobster w3-xxxlarge">Reporte en Tabla</h1>
+            <br><br>
+        </div>
+        <div class="w3-container w3-lobster w3-center">
+            <p class="w3-xxxlarge">Cadena: dann<p>
+        </div>
+        <div class="w3-container w3-center">
+            <div class="w3-container w3-lobster">
+            </div>
+            <table class="w3-table-all w3-margin-top w3-card-4 w3-hoverable">
+            <tr class="w3-black">
+                <th style="width:15%;" class="w3-center" style="vertical-align: middle;">Iteración</th>
+                <th style="width:35%;" class="w3-center">Pila <br> <i class="material-icons">arrow_back</i></th>
+                <th style="width:15%;" class="w3-center" style="vertical-align: middle;">Entrada</th>
+                <th style="width:35%;" class="w3-center" style="vertical-align: middle;">Transiciones</th>
+            </tr>
+    
+            <tr>
+                <td class="w3-center"><b>0</b></td>
+                <td style="text-align: right;"></td>
+                <td class="w3-center">d</td>
+                <td class="w3-center">(i,λ,λ;p,#)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>1</b></td>
+                <td style="text-align: right;">#</td>
+                <td class="w3-center">d</td>
+                <td class="w3-center">(p,λ,λ;q,S)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>2</b></td>
+                <td style="text-align: right;">S#</td>
+                <td class="w3-center">d</td>
+                <td class="w3-center">(q,λ,S;q,C A)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>3</b></td>
+                <td style="text-align: right;">AC#</td>
+                <td class="w3-center">d</td>
+                <td class="w3-center">(q,λ,A;q,B d)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>4</b></td>
+                <td style="text-align: right;">dBC#</td>
+                <td class="w3-center">d</td>
+                <td class="w3-center">(q,d,d;q,λ)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>5</b></td>
+                <td style="text-align: right;">BC#</td>
+                <td class="w3-center">a</td>
+                <td class="w3-center">(q,λ,B;q,C a)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>6</b></td>
+                <td style="text-align: right;">aCC#</td>
+                <td class="w3-center">a</td>
+                <td class="w3-center">(q,a,a;q,λ)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>7</b></td>
+                <td style="text-align: right;">CC#</td>
+                <td class="w3-center">n</td>
+                <td class="w3-center">(q,λ,C;q,n)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>8</b></td>
+                <td style="text-align: right;">nC#</td>
+                <td class="w3-center">n</td>
+                <td class="w3-center">(q,n,n;q,λ)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>9</b></td>
+                <td style="text-align: right;">C#</td>
+                <td class="w3-center">n</td>
+                <td class="w3-center">(q,λ,C;q,n)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>10</b></td>
+                <td style="text-align: right;">n#</td>
+                <td class="w3-center">n</td>
+                <td class="w3-center">(q,n,n;q,λ)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>11</b></td>
+                <td style="text-align: right;">#</td>
+                <td class="w3-center">λ</td>
+                <td class="w3-center">(q,λ,#;f,λ)</td>
+            </tr>
+        
+            <tr>
+                <td class="w3-center"><b>12</b></td>
+                <td style="text-align: right;">λ</td>
+                <td class="w3-center">λ</td>
+                <td class="w3-center">f</td>
+            </tr>
+        
+            </table>
+        <div class="w3-container w3-lobster w3-center">
+        <p class="w3-xxxlarge">Cadena válida<p>
+        </div>
+    </div><br><br>
+    
+    </body>
+
+    </html>
+    
